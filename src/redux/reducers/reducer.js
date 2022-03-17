@@ -2,7 +2,6 @@ const intialState = {
   selectedIndex: null,
   users: [
     {
-      
       Name: "Deep Ramani0",
       Image: "https://reqres.in/img/faces/1-image.jpg",
       Email: "deepramani0@gmail.com",
@@ -119,12 +118,16 @@ const reducer = (state = intialState, action) => {
           sameIndex--;
         }
       }
-      deleteusers = deleteusers.filter((user,index)=>{
-        return !(index === action.payload)
-      })
+      deleteusers = deleteusers.filter((user, index) => {
+        return !(index === action.payload);
+      });
 
-      return { ...state, users : deleteusers, selectedIndex: sameIndex };
-      
+      return { ...state, users: deleteusers, selectedIndex: sameIndex };
+
+    case "UpdateStatus":
+      let userList = [...state.users];
+      userList[action.payload].Status = "Active";
+      return { ...state, users: userList };
     default:
       return state;
   }

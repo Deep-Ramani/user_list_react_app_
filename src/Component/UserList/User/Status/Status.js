@@ -14,7 +14,7 @@ export const Status = (props) => {
         {/* <option value="volvo">Active</option>
         <option value="saab">Inactive</option> */}
        <option> Inactive</option>
-       <option> Active</option>
+       <option onClick={props.onClick}> Active</option>
       </select>
     </div>
   );

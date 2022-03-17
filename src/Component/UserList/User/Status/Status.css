@@ -1,0 +1,10 @@
+.dropdown{
+    width: 100px;
+}
+.status-item{
+    background-color: white;
+    border: 0ch;
+}
+.ActiveColor{
+    color: green;
+}

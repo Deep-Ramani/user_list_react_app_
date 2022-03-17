@@ -1,0 +1,24 @@
+.UserInformation{
+    display:inline-flex;
+}
+.userData{
+    width: 150px;
+}
+.email{
+    font-size: 15px;
+}
+.UserNameAndEmail{
+    margin-left: 20px;
+}
+td{
+    width: 350px;
+}
+.status{
+    width: 100px;
+}
+.access{
+    width: 120px;
+}
+.lockandDeletebtn{
+    width: 100px;
+}

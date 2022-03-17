@@ -1,0 +1,95 @@
+.CardHover {
+  margin-top: 100px;
+  padding: 20px;
+  /* padding-top: 150px; */
+  position: fixed;
+  text-align: center;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  box-shadow: 4px 14px 27px -3px #888888;
+  width: 300px;
+  height: 450px;
+}
+.CardHover1 {
+  margin-top: 100px;
+  padding: 50px;
+  padding-top: 100px;
+  position: fixed;
+  text-align: center;
+  /* border: 1px solid black; */
+  border-radius: 30px;
+  box-shadow: 4px 14px 27px -3px #888888;
+  width: 300px;
+  height: 450px;
+}
+
+.AvatarImg1 > img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+.progress-bar {
+  width: 60%;
+}
+.progress {
+  height: 7px !important;
+  width: 231px;
+}
+.clicks {
+  display: inline-flex;
+  margin-top: 10px;
+}
+.btn-warning {
+  height: 50px;
+  padding-top: 10px;
+  width: 200px;
+  font-size: 20px;
+  color: white;
+  margin: 0 auto;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+.btn-warning > b {
+  color: whitesmoke;
+}
+.UserName {
+  margin-top: 15px;
+  display: inline-flex;
+}
+.UserEmail {
+  margin-top: 5px;
+  font-size: 15px;
+}
+.Plan {
+  margin-top: 5px;
+}
+.planuses {
+  margin-top: 20px;
+  float: inline-start;
+  text-align: left;
+  padding-left: 15px;
+}
+.betweenborder {
+  border-left: 1px solid gray;
+  height: 60px;
+  text-align: left;
+  padding-left: 10px;
+}
+.clicksreviewed {
+  font-size: x-large;
+}
+.monthlyclicks {
+  font-size: x-large;
+}
+.clicksnumber {
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+.nonhoveremoji > img {
+  width: 200px;
+}
+.activegreenbtn {
+  width: 10px;
+  height: 10px;
+}

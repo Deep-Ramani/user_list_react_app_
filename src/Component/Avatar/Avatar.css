@@ -1,4 +1,5 @@
 .AvatarImg>img{
-    height: 50px;
+    height: 55px;
+    width: 55px;
     border-radius: 50%;
 }

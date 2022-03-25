@@ -1,0 +1,41 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    /* margin: 0px; */
+    position: fixed;
+    bottom: 11%;
+    left: 44%;
+  }
+  li {
+    list-style: none;
+  }
+  .cell {
+    padding: 8px;
+    margin: 0px 4px;
+    font-size: 1rem;
+    border: 2px solid #cecece;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .cell:hover {
+    background-color: #cecece;
+  }
+  .current {
+    background-color: #007aff;
+    padding: 8px;
+    margin: 0px 4px;
+    font-size: 1rem;
+    border: 2px solid #cecece;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #007aff;
+    color: white;
+  }
+  
+  .current:hover {
+    background-color: #007aff;
+    border: 2px solid #007aff;
+    color: white;
+  }
+  

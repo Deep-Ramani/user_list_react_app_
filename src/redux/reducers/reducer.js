@@ -1,5 +1,8 @@
 const intialState = {
+  loading: true,
+  error : null,
   selectedIndex: null,
+  pageUpdated_data : [],
   users: [
     // {
     //   Name: "Deep Ramani0",
@@ -130,8 +133,24 @@ const reducer = (state = intialState, action) => {
       userList[action.payload].Status = "Active";
       return { ...state, users: userList };
 
-    case "SetUsers":
-      return {...state,users:action.payload}
+    // case "SetUsers":
+    //   return {...state,users:action.payload}
+
+    case "FetchUserRequest":
+      return {...state, loading : true};
+
+    case "FetchUserSuccess":
+      return {...state,loading : false, users:action.payload, selectedIndex: null, error: ''}
+
+    case "StoreData":
+      let ListPage = [...state.pageUpdated_data]
+      ListPage[action.pageNumber] = action.payload;
+      return{
+        ...state,
+        pageUpdated_data: ListPage
+      } 
+    case "FetchUserFailure":
+      return {...state,loading : false, users:[], error:action.payload}
     default:
       return state;
   }

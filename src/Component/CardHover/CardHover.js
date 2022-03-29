@@ -8,19 +8,21 @@ import { MonthlyClicks } from "./MonthlyClicks/MonthlyClicks";
 import NoneHoverEmoji from "../../assets/images/NoneHoverEmoji.png";
 import ActiveGreenBtn from "../../assets/images/activegreenbtn.png";
 export const CardHover = () => {
-  const users = useSelector((state) => state.users);
-  const index = useSelector((state) => state.selectedIndex);
+  const { loading, users, selectedIndex } = useSelector((state) => state);
 
-  console.log(index);
-  if (typeof index === "number") {
+  console.log(selectedIndex);
+  if (loading) {
+    return "";
+  }
+  if (typeof selectedIndex === "number") {
     return (
       <div className="CardHover">
         <div className="AvatarImg1">
-          <img src={users[index].Image} alt="not display"></img>
+          <img src={users[selectedIndex].Image} alt="not display"></img>
         </div>
         <div className="UserName">
-          <Name name={users[index].Name} />
-          {users[index].Status === "Active" ? (
+          <Name name={users[selectedIndex].Name} />
+          {users[selectedIndex].Status === "Active" ? (
             <sup>
               <img
                 className="activegreenbtn"
@@ -33,7 +35,7 @@ export const CardHover = () => {
           )}
         </div>
         <div className="UserEmail">
-          <Email email={users[index].Email} />
+          <Email email={users[selectedIndex].Email} />
         </div>
         <div className="Plan">
           <b>Your Plan : Standard</b>
@@ -56,14 +58,18 @@ export const CardHover = () => {
         <div className="clicks">
           <div className="clicksnumber">
             <b className="clicksreviewed">
-              <ClicksReviewed clicksreviewed={users[index].ClicksReviewed} />
+              <ClicksReviewed
+                clicksreviewed={users[selectedIndex].ClicksReviewed}
+              />
             </b>
             <br /> clicks reviewed
           </div>
 
           <div className="betweenborder">
             <b className="monthlyclicks">
-              <MonthlyClicks monthlyclicks={users[index].MonthlyClicks} />
+              <MonthlyClicks
+                monthlyclicks={users[selectedIndex].MonthlyClicks}
+              />
             </b>
             <br /> Monthly clicks
           </div>

@@ -18,3 +18,10 @@ export const UpdateStatus = (index) =>{
     payload:index,
   }
 }
+
+export const setUsers = (users) => {
+  return {
+      type : "SetUsers",
+      payload : users,
+  };
+};

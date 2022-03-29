@@ -21,12 +21,6 @@ export const UpdateStatus = (index) => {
   };
 };
 
-// export const setUsers = (users) => {
-//   return {
-//       type : "SetUsers",
-//       payload : users,
-//   };
-// };
 
 export const FetchUserRequest = () => {
   return {
@@ -43,39 +37,54 @@ export const FetchUserSuccess = (users) => {
 
 export const FetchUserFailur = (error) => {
   return {
-    type: "FetchUserFailur",
+    type: "FetchUserFailure",
     payload: error,
   };
 };
 
-export const FetchUser = (currentPage) => {
+export const StoreData = (data, pageNumber) => {
+  console.log("UpdatedData", data);
+  return {
+    type: "StoreData",
+    payload: data,
+    pageNumber: pageNumber,
+  };
+};
+
+export const FetchUser = (currentPage, page_data) => {
   console.log(currentPage);
   return (dispatch) => {
-    dispatch(FetchUserRequest);
-    axios
-      .get(`https://reqres.in/api/users?page=${currentPage}`)
-      .then((response) => {
-        const users = response.data.data;
-        let updatedUserList = [];
-        users.forEach((user, index) => {
-          let { first_name, last_name, email, avatar } = user;
-          let updatedUser = {
-            Name: first_name + " " + last_name,
-            Email: email,
-            Image: avatar,
-            Status: `${index === 0 ? "Active" : "Inactive"}`,
-            Access: `${index === 0 ? "Owner" : "Manager"}`,
-            ClicksReviewed: "6,450",
-            MonthlyClicks: "7,000",
-          };
-          console.log("updatedUser:", updatedUser);
-          updatedUserList.push(updatedUser);
+   
+    dispatch(FetchUserRequest());
+    if (page_data && page_data[currentPage]) {
+      console.log("page data",page_data[currentPage])
+      dispatch(FetchUserSuccess(page_data[currentPage]));
+    } else {
+      axios
+        .get(`https://reqres.in/api/users?page=${currentPage}`)
+        .then((response) => {
+          const users = response.data.data;
+          let updatedUserList = [];
+          users.forEach((user, index) => {
+            let { first_name, last_name, email, avatar } = user;
+            let updatedUser = {
+              Name: first_name + " " + last_name,
+              Email: email,
+              Image: avatar,
+              Status: `${index === 0 ? "Active" : "Inactive"}`,
+              Access: `${index === 0 ? "Owner" : "Manager"}`,
+              ClicksReviewed: "6,450",
+              MonthlyClicks: "7,000",
+            };
+            console.log("updatedUser:", updatedUser);
+            updatedUserList.push(updatedUser);
+          });
+          dispatch(FetchUserSuccess(updatedUserList));
+          dispatch(StoreData(updatedUserList, currentPage));
+        })
+        .catch((error) => {
+          dispatch(FetchUserFailur(error.message));
         });
-        dispatch(FetchUserSuccess(updatedUserList));
-      })
-      .catch((error) => {
-        const errorMessage = error.message;
-        dispatch(FetchUserFailur(errorMessage));
-      });
+    }
   };
 };

@@ -11,3 +11,10 @@ export const DeleteUser = (index) => {
     payload :index,
   };
 };
+
+export const UpdateStatus = (index) =>{
+  return {
+    type:"UpdateStatus",
+    payload:index,
+  }
+}

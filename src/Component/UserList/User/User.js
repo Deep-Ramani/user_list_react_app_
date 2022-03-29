@@ -7,7 +7,7 @@ import { Status } from "./Status/Status";
 import { Access } from "./Access/Access";
 import { LockAndDeleteBtn } from "./LockAndDeleteButton/LockAndDeleteBtn";
 import { useDispatch } from "react-redux";
-import { userHover } from "../../../redux/actions/action";
+import { UpdateStatus, userHover } from "../../../redux/actions/action";
 import { DeleteUser } from "../../../redux/actions/action";
 
 export const User = (props) => {
@@ -35,7 +35,7 @@ export const User = (props) => {
         </div>
       </td>
       <td className="status">
-        <Status status={props.user.Status} />
+        <Status status={props.user.Status} onClick={()=>Dispatch(UpdateStatus(props.index))}/>
       </td>
       <td className="access">
         <Access access={props.user.Access} />

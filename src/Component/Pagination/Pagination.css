@@ -1,9 +1,10 @@
 .pagination {
     display: flex;
+   
     justify-content: center;
     /* margin: 0px; */
     position: fixed;
-    bottom: 11%;
+    bottom: 7%;
     left: 44%;
   }
   li {
@@ -12,7 +13,8 @@
   .cell {
     padding: 8px;
     margin: 0px 4px;
-    font-size: 1rem;
+    font-size: 20px;
+    width: 50px;
     border: 2px solid #cecece;
     background-color: white;
     cursor: pointer;
@@ -25,9 +27,10 @@
     background-color: #007aff;
     padding: 8px;
     margin: 0px 4px;
-    font-size: 1rem;
+    font-size: 20px;
     border: 2px solid #cecece;
     cursor: pointer;
+    width: 50px;
     border-radius: 50%;
     border: 2px solid #007aff;
     color: white;

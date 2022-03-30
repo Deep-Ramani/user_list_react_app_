@@ -16,8 +16,8 @@ const UserTable = (props) => {
 
   useEffect(() => {
     Dispatch(FetchUser(currentPage, pageUpdated_data));
-    console.log(currentPage);
-  }, [currentPage]);
+    console.log("current page: ",currentPage);
+  }, [currentPage, pageUpdated_data, Dispatch]);
   console.log("users: ", users);
 
   const paginate = (pageNumber) => {

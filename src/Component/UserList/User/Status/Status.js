@@ -10,11 +10,11 @@ export const Status = (props) => {
   }
   return (
     <div className="dropdown">
-      <select className="status-item">
+      <select className="status-item" onClick={props.toggleStatus}>
         {/* <option value="volvo">Active</option>
         <option value="saab">Inactive</option> */}
-       <option> Inactive</option>
-       <option onClick={props.onClick}> Active</option>
+       <option value="Inactive"> Inactive</option>
+       <option value="Active"> Active</option>
       </select>
     </div>
   );

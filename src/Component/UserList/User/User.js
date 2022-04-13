@@ -12,6 +12,11 @@ import { DeleteUser } from "../../../redux/actions/action";
 
 export const User = (props) => {
   const Dispatch = useDispatch();
+  const toggleStatus = (event) => {
+    if (event.target.value === "Active") {
+      Dispatch(UpdateStatus(props.index));
+    }
+  };
 
   return (
     <tr>
@@ -35,15 +40,17 @@ export const User = (props) => {
         </div>
       </td>
       <td className="status">
-        <Status status={props.user.Status} onClick={()=>Dispatch(UpdateStatus(props.index))}/>
+        <Status status={props.user.Status} toggleStatus={toggleStatus} />
       </td>
       <td className="access">
         <Access access={props.user.Access} />
       </td>
       <td className="lockandDeletebtn">
-        <LockAndDeleteBtn user={props.user} onClick={()=>Dispatch(DeleteUser(props.index))} />
+        <LockAndDeleteBtn
+          user={props.user}
+          onClick={() => Dispatch(DeleteUser(props.index))}
+        />
       </td>
-      
     </tr>
   );
 };

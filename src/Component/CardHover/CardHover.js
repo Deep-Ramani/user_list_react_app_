@@ -41,7 +41,7 @@ export const CardHover = () => {
           <b>Your Plan : Standard</b>
         </div>
         <div className="btn-warning">
-          <b>Active User</b>
+          <b>{users[selectedIndex].Status} User</b>
         </div>
         <div className="planuses">
           Plan Uses
